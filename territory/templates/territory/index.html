@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== BOX ICONS ===== -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title>Sidebar menu responsive</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body id="body-pd">
+    <header class="header" id="header">
+      <div style="display: flex; flex-direction: row; align-items: center">
+        <div class="header__toggle">
+          <i class="bx bx-menu" id="header-toggle"></i>
+        </div>
+        <a class="header__link">Recherche</a>
+        <span class="header__link-icon">
+          <i class="icon_chevron" data-feather="chevron-right"></i>
+        </span>
+        <h5 class="header__link-result">Resultat de recherche</h5>
+      </div>
+      <div class="btn__line">
+        <div class="btn__group">
+          <a class="btn__align1" href="#">
+            <i class="icon__btn" data-feather="file-text"></i>
+            <p><strong>Presse (347)</strong></p>
+          </a>
+          <a class="btn__align2" href="#">
+            <i class="icon__btn" data-feather="file"></i>
+            <p><strong>Publication des collectivités (347)</strong></p>
+          </a>
+        </div>
+        <a class="btn__primary" href="#">
+          <i class="icon__primary" data-feather="users"></i>
+          <p><strong>IMPACTERS (357)</strong></p>
+        </a>
+      </div>
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+        <div>
+          <a href="#" class="nav__logo">
+            <!--<i class='bx bx-layer nav__logo-icon'></i>-->
+            <span class="nav__logo-name">GW</span>
+          </a>
+
+          <div class="nav__list">
+            <a href="#" class="nav__link active">
+              <i class="nav__icon" data-feather="home"></i>
+              <span class="nav__name">Home</span>
+            </a>
+
+            <a href="#" class="nav__link">
+              <i class="bx bx-search nav__icon" data-feather="search"></i>
+              <span class="nav__name">Search</span>
+            </a>
+
+            <a href="#" class="nav__link">
+              <i class="nav__icon" data-feather="eye"></i>
+              <span class="nav__name">Show</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <a href="#" class="nav__link">
+            <i class="nav__icon" data-feather="user"></i>
+            <span class="nav__name">Login</span>
+          </a>
+          <a href="#" class="nav__link">
+            <i class="nav__icon" data-feather="info"></i>
+            <span class="nav__name">Info</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+    <!-- MAIN CONTENT-->
+    <div class="content">
+        <!-- FILTER -->
+      <div class="filter">
+        <div class="filter__title-container">
+            <h3 class="filter__title">FILTERS</h3>
+            <a href="" class="filter__init">
+                <i class="icon__btn" data-feather="refresh-cw" style="margin-right: 5px;"></i>
+                <p class="filter__init-title filter__title">Réinitialiser</p>
+            </a>
+        </div>
+
+        <div class="dropdown">
+            <label class="dropdown">
+
+                <div class="dd-button">
+                  Fonction
+                </div>
+              
+                <input type="checkbox" class="dd-input" id="test">
+              
+                <ul class="dd-menu">
+                  <li>Action</li>
+                  <li>Another action</li>
+                  <li>Something else here</li>
+                </ul>
+                
+              </label>
+        </div>
+        
+        <div class="geo__filter">
+            <div class="geo__filter-title">
+                <h3>Périmètres géographique</h3>
+                <i class="icon__btn" data-feather="chevron-down" style="margin-right: 5px;color: grey !important;"></i>
+            </div>
+            <a href="" class="filter__init">
+                <i class="icon__btn" data-feather="edit-2" style="margin-right: 5px;"></i>
+                <p class="filter__init-title filter__title" style="font-size:.9em">Modifier le périmètre</p>
+            </a>
+            
+            <div class="divider-h"></div>
+
+            <div class="geo__search">
+                <input class="geo__search-input" type="text" placeholder="Rechercher une localité">
+                <i class="icon__btn" data-feather="search"></i>
+            </div>
+
+            <div class="divider-l"></div>
+
+            <div class="ajustement">
+                <a href="" class="filter__init">
+                    <i class="icon__btn" data-feather="check-square" style="margin-right: 5px;"></i>
+                    <p class="filter__init-title filter__title" style="font-size:.9em">Tout décocher</p>
+                </a>
+
+                <a href="" class="filter__init">
+                    <i class="icon__btn" data-feather="maximize-2" style="margin-right: 5px;"></i>
+                    <p class="filter__init-title filter__title" style="font-size:.9em">Tout réduire</p>
+                </a>
+            </div>
+
+            <div class="divider-h"></div>
+
+            <ul id="myUL">
+                <li><input type="checkbox"><span class="caret">Aube</span>
+                  <ul class="nested">
+                    <li><input type="checkbox"><span class="caret">CA des Portes de Romilly-sur-Seine</span>
+                      <ul class="nested">
+                        <li><input type="checkbox">Assenay</li>
+                        <li><input type="checkbox">Aubeterre</li>
+                        <li><input type="checkbox">Bouilly</li>
+                        <li><input type="checkbox">Bouranton</li>
+                        <li><input type="checkbox">Bréviandes</li>
+                        </li>
+                      </ul>
+                    </li>  
+                  </ul>
+                </li>
+              </ul>
+            
+        </div>
+
+      </div>
+      <div class="separateur"></div>
+      <!-- SEARCH -->
+      <div class="search">
+        <div class="search__input">
+            <div class="search__input-zone">
+                <div href="" class="filter__init">
+                    <i class="icon__btn-input" data-feather="users" style="margin-right: 5px;"></i>
+                    <input class="input__search" placeholder="Recherchez par nom, prénom" type="text">
+                </div>
+            </div>
+            <div class="search_input-button">
+                <a href="" class="filter__init">
+                    <i class="icon__btn" data-feather="search" style="margin-right: 5px;color: white !important;"></i>
+                    <p class="search__init-title search__title" style="color: white !important;">Rechercher</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="search__result-filters">
+            <div class="results">
+                <h5 class="results__title">357 Résultats</h5>
+                <p class="results__description">Issus du Répertoire National des Elus</p>
+            </div>
+            <div class="filters">
+                <div class="filters__dropdown">
+                    <p class="filters__heading">Résultats par page : </p>
+                    <div class="dropdown_2">
+                        <label class="dropdown_2">
+            
+                            <div class="dd-button_2">
+                              2
+                            </div>
+                          
+                            <input type="checkbox" class="dd-input_2" id="test2">
+                          
+                            <ul class="dd-menu_2">
+                              <li>50</li>
+                            </ul>
+
+                          </label>
+                    </div>
+                </div>
+
+                <div class="filters__dropdown">
+                    <p class="filters__heading">Trier par : </p>
+                    <div class="dropdown_2">
+                        <label class="dropdown_2">
+            
+                            <div class="dd-button_2">
+                              Apparition en presse
+                            </div>
+                          
+                            <input type="checkbox" class="dd-input_2" id="test2">
+                          
+                            <ul class="dd-menu_2">
+                              <li>Random</li>
+                            </ul>
+
+                          </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="results__elus">
+            <div class="elus__cards">
+                <div class="elus__name">
+                    <p>ALAIN GALU</p>
+                </div>
+                <div class="staff">
+                    <div class="staff__container">
+                        <h3>Présidence du conseil départemental </h3>
+                        <p> ... Aube</p>
+                    </div>
+
+                    <div class="staff__container">
+                        <h3>Membre du conseil municipal </h3>
+                        <p> ... Bouilly</p>
+                    </div>
+                </div>
+                <div class="appearance">
+                    <h3>173</h3>
+                    <p>Apparitions</p>
+                </div>
+            </div>
+
+            <div class="elus__cards">
+                <div class="elus__name">
+                    <p>ALAIN GALU</p>
+                </div>
+                <div class="staff">
+                    <div class="staff__container">
+                        <h3>Présidence du conseil départemental </h3>
+                        <p> ... Aube</p>
+                    </div>
+
+                    <div class="staff__container">
+                        <h3>Membre du conseil municipal </h3>
+                        <p> ... Bouilly</p>
+                    </div>
+                </div>
+                <div class="appearance">
+                    <h3>173</h3>
+                    <p>Apparitions</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <div class="previous">
+                <a class="btn__previous" href="#">
+                    <i class="icon__previous" data-feather="arrow-left"></i>
+                    <p><strong>PREVIOUS</strong></p>
+                  </a>
+            </div>
+            <div class="pages">
+                <a href="" class="active-link">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">...</a>
+                <a href="">26</a>
+            </div>
+            <div class="next">
+                <a class="btn__next" href="#">
+                    <p><strong>NEXT</strong></p>
+                    <i class="icon__next" data-feather="arrow-right"></i>
+                  </a>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
